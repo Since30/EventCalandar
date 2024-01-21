@@ -1,6 +1,6 @@
 # Symfony Task Management Application
 
-![Symfony](https://img.shields.io/badge/Symfony-v5.3-green)
+![Symfony](https://img.shields.io/badge/Symfony-v6.4-green)
 ![Docker](https://img.shields.io/badge/Docker-20.10-blue)
 ![MySQL](https://img.shields.io/badge/MySQL-8.0-orange)
 
