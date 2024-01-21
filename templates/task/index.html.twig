@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajouter une nouvelle tâche
+{% endblock %}
+
+{% block body %}
+	<div class="container">
+		<div class="row justify-content-center">
+			<div class="col-md-6">
+				<div class="card mt-5">
+					<div class="card-body">
+						<h1 class="card-title text-center">Ajouter une nouvelle tâche</h1>
+
+						{{ form_start(form, {'attr': {'class': 'form'}}) }}
+
+						{{ form_row(form.title, {'attr': {'class': 'form-control', 'placeholder': 'Titre de la tâche'}}) }}
+						{{ form_row(form.start, {'attr': {'class': 'form-control', 'placeholder': 'Date/heure de début', 'type': 'datetime-local'}}) }}
+						{{ form_row(form.end, {'attr': {'class': 'form-control', 'placeholder': 'Date/heure de fin', 'type': 'datetime-local'}}) }}
+						{{ form_row(form.user, {'label': 'Utilisateur assigné', 'attr': {'class': 'form-control'}}) }}
+
+						<div class="text-center">
+							<button type="submit" class="btn btn-primary">Enregistrer la tâche</button>
+						</div>
+
+						{{ form_end(form) }}
+
+						{% for message in app.flashes('success') %}
+							<div class="alert alert-success mt-3">
+								{{ message }}
+							</div>
+						{% endfor %}
+
+						{% for message in app.flashes('error') %}
+							<div class="alert alert-danger mt-3">
+								{{ message }}
+							</div>
+						{% endfor %}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}
