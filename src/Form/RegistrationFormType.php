@@ -17,8 +17,20 @@ class RegistrationFormType extends AbstractType
             ->add('email')
             ->add('plainPassword', RepeatedType::class, [
                 'type' => PasswordType::class,
-                'first_options' => ['label' => 'Password'],
-                'second_options' => ['label' => 'Repeat Password'],
+                'first_options' => [
+                    'label' => 'Password',
+                    'attr' => [
+                        'placeholder' => 'Mot de passe',
+                        'class' => 'form-control',
+                    ],
+                ],
+                'second_options' => [
+                    'label' => 'Repeat Password',
+                    'attr' => [
+                        'placeholder' => 'Répéter le mot de passe',
+                        'class' => 'form-control',
+                    ],
+                ],
             ]);
     }
 
