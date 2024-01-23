@@ -19,6 +19,9 @@ security:
         login_path: app_login
         check_path: app_login
         default_target_path: app_home
+      logout:
+        path: app_logout # Le chemin de déconnexion que vous souhaitez utiliser
+        target: app_home # La cible de redirection après la déconnexion
         # activate different ways to authenticate
         # https://symfony.com/doc/current/security.html#the-firewall
 
