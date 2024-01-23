@@ -13,23 +13,39 @@
 					<div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
 				{% endif %}
 
-				{{ form_start(form) }}
+				{# {{ form_start(form) }} #}
 
-				<div class="mb-3">
-					{{ form_label(form.email, 'Adresse email', {'label_attr': {'class': 'form-label'}}) }}
-					{{ form_widget(form.email, {'attr': {'class': 'form-control', 'autofocus': true}}) }}
+				<form action="{{ path('app_login') }}" method="post">
+					<div class="mb-3">
+						<label for="username">Adresse email</label>
+						<input type="text" name="_username" id="username" class="form-control" value="{{last_username}}" autofocus required>
+					</div>
 
+					<div class="mb-3">
+						<label for="password" class="form-label">Mot de passe</label>
+						<input type="password" name="_password" id="inputPassword" class="form-control" required>
+					</div>
+
+					<div class="mb-3">
+						<input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+					</div>
+
+					<button type="submit" class="btn btn-primary">Connexion</button>
+
+					{# <div class="mb-3">
+																									{{ form_label(form.email, 'Adresse email', {'label_attr': {'class': 'form-label'}}) }}
+																									{{ form_widget(form.email, {'attr': {'class': 'form-control', 'autofocus': true}}) }}
+																				
+																								</div>
+																				
+																								<div class="mb-3">
+																									{{ form_label(form.password, 'Mot de passe', {'label_attr': {'class': 'form-label'}}) }}
+																									{{ form_widget(form.password, {'attr': {'class': 'form-control'}}) }}
+																								</div> #}
+
+
+					{# {{ form_end(form) }} #}
 				</div>
-
-				<div class="mb-3">
-					{{ form_label(form.password, 'Mot de passe', {'label_attr': {'class': 'form-label'}}) }}
-					{{ form_widget(form.password, {'attr': {'class': 'form-control'}}) }}
-				</div>
-
-				<button type="submit" class="btn btn-primary">Connexion</button>
-
-				{{ form_end(form) }}
 			</div>
 		</div>
-	</div>
-{% endblock %}
+	{% endblock %}
